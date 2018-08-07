@@ -1,1 +1,1 @@
-My application is going to be anket, any user can answer it annonimly and get average results untill that moment. If user want to post some anket he has to make registration and log to page..
+My application is going to be anket, any customer can answer it annonimly and get average results untill that moment. If customer want to post some anket he has to make registration and log to page.
