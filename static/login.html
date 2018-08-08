@@ -90,18 +90,6 @@ body{
 	padding: 4px;
 }
 
-.login input[type=email]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-}
 .login input[type=password]{
 	width: 250px;
 	height: 30px;
@@ -144,11 +132,6 @@ body{
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.login input[type=email]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
-}
-
 .login input[type=password]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
@@ -167,6 +150,7 @@ body{
 }
 </style>
 
+    <script src="js/prefixfree.min.js"></script>
 
 </head>
 
@@ -179,14 +163,13 @@ body{
 		</div>
 		<br>
 		<div class="login">
-                <input type="email" placeholder="email" name="email"><br>
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
-				<a href="#!user"><input type="button" value="Register"></a><br>
-				<a href="#!login" style="color:white; font-size: 18px; text-decoration: none;"><span>Already registered?</span></a>
-
+				<a href="#!admin"><input type="button" value="Login"></a><br>
+				<a href="#!register" style="color:white; font-size: 18px; text-decoration: none;"><span>No account?</span></a>
 		</div>
 
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
 </body>
 
