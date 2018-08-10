@@ -5,15 +5,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
+<script src="controllers/getSurvey.js"></script>
 
 <body ng-app="myApp" style="background-color: rgb(255, 255, 196); margin-top: 65px">
 
     <script>
         var app = angular.module("myApp", ["ngRoute"]);
+
+        app.controller("getSurvey", getSurvey);
         app.config(function ($routeProvider) {
             $routeProvider
                 .when("/", {
-                    templateUrl: "user.html"
+                    templateUrl: "user.html",
+                    controller: getSurvey
                 })
                 .when("/register", {
                     templateUrl: "register.html"

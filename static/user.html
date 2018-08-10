@@ -25,27 +25,25 @@
               </nav>
     
 <div class="row">
-    <div class="col-12">
+    <div class="col-12" ng-repeat="x in myWelcome">
         <div class="card" style="margin-right: 5%; margin-left: 5%">
             <div class="card-header">
-                Anketa 1
+                {{x.name}}
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 mb-4">
-                        1) Your name: <br><input type="radio" name="odg"> juhu
-                        <input type="radio" name="odg"> juhu
-                        <input type="radio" name="odg"> juhu
+                        1) {{x.question1}}: <br><input type="radio" name="odg"> {{x.answer11}}
+                        <input type="radio" name="odg"> {{x.answer12}}
+                        <input type="radio" name="odg"> {{x.answer13}}
+                        <input type="radio" name="odg"> {{x.answer14}}
+
                     </div>
                     <div class="col-12 mb-4">
-                            2) Your name: <br><input type="radio" name="odg2"> juhu
-                            <input type="radio" name="odg2"> juhu
-                            <input type="radio" name="odg2"> juhu
-                    </div>
-                    <div class="col-12 mb-4">
-                            3) Your name: <br><input type="radio" name="odg3"> juhu
-                            <input type="radio" name="odg3"> juhu
-                            <input type="radio" name="odg3"> juhu
+                            2)  {{x.question2}}: <br><input type="radio" name="odg"> {{x.answer21}}
+                            <input type="radio" name="odg"> {{x.answer22}}
+                            <input type="radio" name="odg"> {{x.answer23}}
+                            <input type="radio" name="odg"> {{x.answer24}}
                     </div>
                     <div class="col-12">
                         <button class="btn btn-success">Submit</button>
@@ -53,7 +51,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><!-- 
     <div class="col-12 mt-3">
             <div class="card" style="margin-right: 5%; margin-left: 5%">
                 <div class="card-header">
@@ -111,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 </div>
     
 </body>
