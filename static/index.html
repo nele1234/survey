@@ -7,12 +7,15 @@
 <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
 
+<script src="release/popeye.js"></script> 
+<link rel="stylesheet" href="release/popeye.css" />
+
 <script src="controllers/getSurvey.js"></script>
 
 <body ng-app="myApp" style="background-color: rgb(255, 255, 196); margin-top: 65px">
 
     <script>
-        var app = angular.module("myApp", ["ngRoute","toastr"]);
+        var app = angular.module("myApp", ["ngRoute","toastr", "pathgather.popeye"]);
 
         app.controller("getSurvey", getSurvey);
         app.config(function ($routeProvider) {

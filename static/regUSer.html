@@ -22,19 +22,25 @@
               <div style="margin-bottom: 20px; margin-left:45%">
                     <button class="btn btn-lg btn-success" style="margin-bottom: 20px;"  ng-click="open()">Add new</button>
                 </div>
-                <form ng-show="visible">
-                <div style="margin-bottom: 20px; margin-left:35%">
-                    <input type="text" placeholder="Question 1..." class="form-control" style="width: 350px" ng-model="anketa.question">
-                    <br>
-                    <input type="text" placeholder="Answer 1" class="form-control" style="width: 350px" ng-model="anketa.answer">
-                    <br>
-                    <input type="text" placeholder="Answer 2" class="form-control" style="width: 350px" ng-model="anketa.answer2">
-<br>
-<input type="text" placeholder="Answer 3" class="form-control" style="width: 350px" ng-model="anketa.answer3">
-<br>
-                    <input type="button" value="Add Question" class="btn btn-success" ng-click="addAnketa()">
-                    <input type="button" value="Finish" class="btn btn-warning" ng-click="close()">
-                  </form>
+                <div class="popeye-modal-container" ng-show="visible">
+                    <div class="popeye-modal">
+                      <a class="popeye-close-modal" href ng-click="close()"></a>
+                      <form >
+                          <div style="margin-bottom: 20px; margin-left:35%">
+                              <input type="text" placeholder="Question 1..." class="form-control" style="width: 350px" ng-model="anketa.question">
+                              <br>
+                              <input type="text" placeholder="Answer 1" class="form-control" style="width: 350px" ng-model="anketa.answer">
+                              <br>
+                              <input type="text" placeholder="Answer 2" class="form-control" style="width: 350px" ng-model="anketa.answer2">
+          <br>
+          <input type="text" placeholder="Answer 3" class="form-control" style="width: 350px" ng-model="anketa.answer3">
+          <br>
+                              <input type="button" value="Add Question" class="btn btn-success" ng-click="addAnketa()">
+                              <input type="button" value="Finish" class="btn btn-warning" ng-click="close()">
+                            </form>
+                    </div>
+                  </div>
+                
                 </div>
         
     
