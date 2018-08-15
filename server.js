@@ -73,6 +73,14 @@ app.put('/ankete/:id', function (req, res) {
     }
    } )
 })
+app.post('/registracija', urlencodedParser, function (req, res, next) {
+  console.log(req.body)
+
+  db.registration.insert(req.body, function (err, docs) {
+    console.log('inserted')
+    res.json(docs)
+  })
+})
 
 app.listen(port, function () {
   console.log('Node app is running on port', port)

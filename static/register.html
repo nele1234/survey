@@ -91,7 +91,7 @@ body{
 }
 
 .login input[type=email]{
-	width: 250px;
+	width: 350px;
 	height: 30px;
 	background: transparent;
 	border: 1px solid rgba(255,255,255,0.6);
@@ -103,7 +103,7 @@ body{
 	padding: 4px;
 }
 .login input[type=password]{
-	width: 250px;
+	width: 350px;
 	height: 30px;
 	background: transparent;
 	border: 1px solid rgba(255,255,255,0.6);
@@ -179,11 +179,65 @@ body{
 		</div>
 		<br>
 		<div class="login">
-                <input type="email" placeholder="email" name="email"><br>
-				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
-				<a href="#!regUser"><input type="button" value="Register"></a><br>
-				<a href="#!login" style="color:white; font-size: 18px; text-decoration: none;"><span>Already registered?</span></a>
+            <form name="register_form" >
+                      <legend class="text-center">Register</legend>
+                      <fieldset>
+                         <div class="form-group col-md-12">
+                            
+                         </div>
+                         <div class="form-group col-md-12">
+                            
+                         </div>
+                         <div class="form-group col-md-12">
+                           
+                         </div>
+                         <div class="form-group col-md-12">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email" required>
+                            <span style="color:#d32f2f" ng-show="register_form.email.$touched && register_form.email.$invalid">
+                            <span ng-show="register_form.email.$error.required">Email is required.</span>
+                            <span ng-show="register_form.email.$error.email">Invalid email address.</span>
+                            </span>
+                         </div>
+                         <div class="form-group col-md-12">
+                          
+                         </div>
+                         <div class="col-md-12">
+                            <div class="row">
+                               <div class="form-group col-md-6">
+                                  <label for="password">Password</label>
+                                  <input type="password" name = "password" ng-model="user.password" class="form-control" placeholder="Password" required>
+                                  <span style="color:#d32f2f" ng-show="register_form.password.$touched && register_form.password.$invalid">
+                                     <span ng-show="register_form.password.$error.required">Password is required.</span>
+                                      </span>
+                                 </div>
+                               <div class="form-group col-md-6">
+                                  <label for="confirm_password">Confirm Password</label>
+                                  <input type="password" name="password_confirm" ng-model="user.password_confirm" wj-validation-error="user.password_confirm != user.password ? 'Passwords don\'t match' : ''" 
+                                  class="form-control" placeholder="Confirm Password">
+                                  <span ng-show="register_form.password_confirm.$invalid">Passwords do NOT match.</span>
+                                 </span>
+                               </div>
+                            </div>
+                         </div>
+                      </fieldset>
+                      <div class="form-group">
+                         <div class="col-md-12">
+                            <div class="checkbox">
+                               <label>
+                              
+                            </div>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                         <div class="col-md-12"><a href="#/!">
+                            <button ng-disabled="register_form.$invalid" ng-required="accepted" ng-click="addregistration()" class="btn btn-warning">
+                            Register
+                            </button></a>
+                            <a href="#!login">Already have an account?</a>
+                         </div>
+                      </div>
+                   </form>
 
 		</div>
 

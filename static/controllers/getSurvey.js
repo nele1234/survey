@@ -65,4 +65,12 @@ $scope.addAnketa = function () {
       getting()
     })
   }
+  $scope.addregistration = function () {
+    console.log('registracija dodana')
+    $http.post('/registracija', $scope.user).then(function (response) {
+      console.log(response)
+      toastr.success("registracija dodana");
+      getting()
+    })
+  }
 };
