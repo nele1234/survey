@@ -22,12 +22,13 @@
               <div style="margin-bottom: 20px; margin-left:45%">
                     <button class="btn btn-lg btn-success" style="margin-bottom: 20px;"  ng-click="open()">Add new</button>
                 </div>
-                <div class="popeye-modal-container" ng-show="visible">
+                <div class="popeye-modal-container" ng-show="visible" style="margin-top: 5%">
                     <div class="popeye-modal">
                       <a class="popeye-close-modal" href ng-click="close()"></a>
                       <form >
                           <div style="margin-bottom: 20px; margin-left:35%">
-                              <input type="text" placeholder="Question 1..." class="form-control" style="width: 350px" ng-model="anketa.question1">
+                              <input type="text" placeholder="name..." class="form-control" style="width: 350px" ng-model="anketa.name">  <br> 
+                            <input type="text" placeholder="Question 1..." class="form-control" style="width: 350px" ng-model="anketa.question1">
                               <br>
                               <input type="text" placeholder="Answer 1" class="form-control" style="width: 350px" ng-model="anketa.answer11">
                               <br>
@@ -49,12 +50,44 @@
           <br>
                               <input type="button" value="Add Question" class="btn btn-success" ng-click="addAnketa()">
                               <input type="button" value="Finish" class="btn btn-warning" ng-click="close()">
+                              <input type="button" value="Update" class="btn btn-dark" ng-click="update()">
                             </form>
+
                     </div>
                   </div>
                 
                 </div>
         
-    
+                <div class="row">
+                    <div class="col-12" ng-repeat="x in myWelcome">
+                        <div class="card" style="margin-right: 5%; margin-left: 5%">
+                            <div class="card-header">
+                                {{x.name}}
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 mb-4">
+                                        1) {{x.question1}}: <br><input type="radio" name="odg"> {{x.answer11}}
+                                        <input type="radio" name="odg"> {{x.answer12}}
+                                        <input type="radio" name="odg"> {{x.answer13}}
+                                        <input type="radio" name="odg"> {{x.answer14}}
+                
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                            2)  {{x.question2}}: <br><input type="radio" name="odg"> {{x.answer21}}
+                                            <input type="radio" name="odg2"> {{x.answer22}}
+                                            <input type="radio" name="odg2"> {{x.answer23}}
+                                            <input type="radio" name="odg2"> {{x.answer24}}
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-success">Submit</button>
+                                        <button class="btn btn-danger " ng-click="deleteSurvey(x._id) ">Remove</button>
+                                        <button class="btn btn-dark "ng-click="edit(x._id); open()">Update</button>                          
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 </body>
 </html>
