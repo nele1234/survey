@@ -48,9 +48,9 @@
 <br>
 <input type="text" placeholder="Answer 4" class="form-control" style="width: 350px" ng-model="anketa.answer24">
           <br>
-                              <input type="button" value="Add Question" class="btn btn-success" ng-click="addAnketa()">
+                              <input type="button" value="Add Question" class="btn btn-success" ng-click="addAnketa(); close()">
                               <input type="button" value="Finish" class="btn btn-warning" ng-click="close()">
-                              <input type="button" value="Update" class="btn btn-dark" ng-click="update()">
+                              <input type="button" value="Update" class="btn btn-dark" ng-click="update(); close()">
                             </form>
 
                     </div>
@@ -67,23 +67,22 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 mb-4">
-                                        1) {{x.question1}}: <br><input type="radio" name="odg"> {{x.answer11}}
-                                        <input type="radio" name="odg"> {{x.answer12}}
-                                        <input type="radio" name="odg"> {{x.answer13}}
-                                        <input type="radio" name="odg"> {{x.answer14}}
+                                        1) {{x.question1}}: <br><input type="radio" name="odg" ng-model="anketa.answer11"> {{x.answer11}}
+                                        <input type="radio" name="odg" ng-model="anketa.answer12"> {{x.answer12}}
+                                        <input type="radio" name="odg" ng-model="anketa.answer13"> {{x.answer13}}
+                                        <input type="radio" name="odg" ng-model="anketa.answer14"> {{x.answer14}}
                 
                                     </div>
                                     <div class="col-12 mb-4">
-                                            2)  {{x.question2}}: <br><input type="radio" name="odg"> {{x.answer21}}
-                                            <input type="radio" name="odg2"> {{x.answer22}}
-                                            <input type="radio" name="odg2"> {{x.answer23}}
-                                            <input type="radio" name="odg2"> {{x.answer24}}
+                                            2)  {{x.question2}}: <br><input type="radio" name="odg" ng-model="anketa.answer21"> {{x.answer21}}
+                                            <input type="radio" name="odg2" ng-model="anketa.answer22"> {{x.answer22}}
+                                            <input type="radio" name="odg2" ng-model="anketa.answer23"> {{x.answer23}}
+                                            <input type="radio" name="odg2" ng-model="anketa.answer24"> {{x.answer24}}
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-success">Submit</button>
                                         <button class="btn btn-danger " ng-click="deleteSurvey(x._id) ">Remove</button>
-                                        <button class="btn btn-dark "  ng-click="edit(x._id); open()">Update</button>                          
-                                        
+                                        <button class="btn btn-dark "  ng-click="edit(x._id); open()">Update</button>
                                     </div>
                                 </div>
                             </div>

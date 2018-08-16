@@ -41,30 +41,31 @@ $scope.addAnketa = function () {
     console.log(id)
     $http.get('/ankete/' + id).then(function (response) {
       console.log('selected')
-      $scope.ankete = response.data
+      $scope.anketa = response.data
     })
   }
 
   $scope.update = function () {
     console.log('update survey')
-    console.log($scope.ankete._id)
-    $http.put('ankete/' + $scope.ankete._id, $scope.ankete).then(function (response) {
+    console.log($scope.anketa._id)
+    $http.put('ankete/' + $scope.anketa._id, $scope.anketa).then(function (response) {
       console.log('update')
-      $scope.ankete.name = ''
-      $scope.ankete.question1 = ''
-      $scope.ankete.answer11 = ''
-      $scope.ankete.answer12 = ''
-      $scope.ankete.answer13 = ''
-      $scope.ankete.answer14 = ''
-      $scope.ankete.question2 = ''
-      $scope.ankete.answer21=''
-      $scope.ankete.answer22 = ''
-      $scope.ankete.answer23 = ''
-      $scope.ankete.answer24 = ''
+      $scope.anketa.name = ''
+      $scope.anketa.question1 = ''
+      $scope.anketa.answer11 = ''
+      $scope.anketa.answer12 = ''
+      $scope.anketa.answer13 = ''
+      $scope.anketa.answer14 = ''
+      $scope.anketa.question2 = ''
+      $scope.anketa.answer21=''
+      $scope.anketa.answer22 = ''
+      $scope.anketa.answer23 = ''
+      $scope.anketa.answer24 = ''
       toastr.success("survey updated successfully")
       getting()
     })
   }
+  
   $scope.addregistration = function () {
     console.log('registracija dodana')
     $http.post('/registracija', $scope.user).then(function (response) {

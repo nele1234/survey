@@ -70,9 +70,16 @@ app.put('/ankete/:id', function (req, res) {
         answer23:req.body.answer23,
         answer24:req.body.answer24
       }
-    }
-   } )
+    },
+    new: true
+   },
+   function (err, doc) {
+    console.log('updated')
+    res.json(doc)
+  } )
 })
+
+
 app.post('/registracija', urlencodedParser, function (req, res, next) {
   console.log(req.body)
 
