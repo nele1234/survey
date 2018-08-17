@@ -22,7 +22,7 @@ function SiteController($scope, $http, toastr, $location){
                 localStorage.setItem('type', response.data.type)
                 toastr.success('Uspješna Prijava');
                 if(localStorage.getItem('type') == "user" ){
-                    $location.url('/');
+                    $location.url('/regUser');
                 } else if(localStorage.getItem('type') == "admin"){
                     $location.url('/adminPanel');
                 }
