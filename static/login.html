@@ -156,7 +156,7 @@ body{
 
 <body>
 
-	<div class="login-form">
+	<!-- <div class="login-form">
 		<form class="form-signin">
 		   <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 		   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -169,6 +169,22 @@ body{
 		   <button class="btn btn-lg btn-warning btn-block" type="submit" ng-click="login(credentials)">Sign in</button>
 		   <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
 		</form>
+	  </div> -->
+	  
+
+	 <div class="body"></div>
+	  <div class="grad"></div>
+	  <div class="header">
+		  <div>Site<span>Random</span></div>
+	  </div>
+	  <br>
+	  <div class="login">
+		  <form>
+			  <input type="text" placeholder="Email..." name="email" ng-model="credentials.email" required><br>
+			  <input type="password" placeholder="password" name="password" ng-model="credentials.password" required><br>
+			  <input type="button" type="submit" value="Login" ng-click="login(credentials)"><br>
+			  <a href="#!register" style="color:white; font-size: 18px; text-decoration: none;"><span>No account?</span></a>
+			</form>
 	  </div>
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
