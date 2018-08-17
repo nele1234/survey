@@ -179,65 +179,95 @@ body{
 		</div>
 		<br>
 		<div class="login">
-            <form name="register_form" >
-                      <legend class="text-center">Register</legend>
-                      <fieldset>
-                         <div class="form-group col-md-12">
-                            
-                         </div>
-                         <div class="form-group col-md-12">
-                            
-                         </div>
-                         <div class="form-group col-md-12">
-                           
-                         </div>
-                         <div class="form-group col-md-12">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email" required>
-                            <span style="color:#d32f2f" ng-show="register_form.email.$touched && register_form.email.$invalid">
-                            <span ng-show="register_form.email.$error.required">Email is required.</span>
-                            <span ng-show="register_form.email.$error.email">Invalid email address.</span>
-                            </span>
-                         </div>
-                         <div class="form-group col-md-12">
-                          
-                         </div>
-                         <div class="col-md-12">
-                            <div class="row">
-                               <div class="form-group col-md-6">
-                                  <label for="password">Password</label>
-                                  <input type="password" name = "password" ng-model="user.password" class="form-control" placeholder="Password" required>
-                                  <span style="color:#d32f2f" ng-show="register_form.password.$touched && register_form.password.$invalid">
-                                     <span ng-show="register_form.password.$error.required">Password is required.</span>
-                                      </span>
-                                 </div>
-                               <div class="form-group col-md-6">
-                                  <label for="confirm_password">Confirm Password</label>
-                                  <input type="password" name="password_confirm" ng-model="user.password_confirm" wj-validation-error="user.password_confirm != user.password ? 'Passwords don\'t match' : ''" 
-                                  class="form-control" placeholder="Confirm Password">
-                                  <span ng-show="register_form.password_confirm.$invalid">Passwords do NOT match.</span>
-                                 </span>
-                               </div>
-                            </div>
-                         </div>
-                      </fieldset>
-                      <div class="form-group">
-                         <div class="col-md-12">
-                            <div class="checkbox">
-                               <label>
-                              
-                            </div>
-                         </div>
-                      </div>
-                      <div class="form-group">
-                         <div class="col-md-12"><a href="#/!">
-                            <button ng-disabled="register_form.$invalid" ng-required="accepted" ng-click="addregistration()" class="btn btn-warning">
-                            Register
-                            </button></a>
-                            <a href="#!login">Already have an account?</a>
-                         </div>
-                      </div>
-                   </form>
+            <div class="registration">
+				<div class="container">
+				   <div class="row align-items-center">
+					  <div class="col-md-6">
+						 <div class="register-message col-md-12">
+							 <img style="margin-bottom:100px;" src="assets/images/logo.png">
+						 </div>
+					  </div>
+					  <div class="col-md-6">
+						 <div class="row">
+							<div class="col-md-12 col-md-offset-2">
+							   <form name="register_form" ng-submit="add_user()">
+								  <legend class="text-center">Register</legend>
+								  <fieldset>
+									 <div class="form-group col-md-12">
+										<label for="first_name">First name</label>
+										<input type="text" name="firstname" ng-model="user.firstName" class="form-control" placeholder="First Name" required>
+										<span style="color:#d32f2f" ng-show="register_form.firstname.$touched">
+										 <span ng-show="register_form.firstname.$error.required">First name is required.</span>
+									 </div>
+									 <div class="form-group col-md-12">
+										<label for="last_name">Last name</label>
+										<input type="text" name="lastname" ng-model="user.lastName" class="form-control" placeholder="Last Name" required>
+										<span style="color:#d32f2f" ng-show="register_form.lastname.$touched">
+										 <span ng-show="register_form.lastname.$error.required">Last name is required.</span>
+									 </div>
+									 <div class="form-group col-md-12">
+										<label for="address">Your Address</label>
+										<input type="text" name="address" ng-model="user.address" class="form-control" placeholder="Address" required>
+										<span style="color:#d32f2f" ng-show="register_form.address.$touched && register_form.address.$invalid">
+										<span ng-show="register_form.address.$error.required">Address is required.</span>
+										 </span>
+									 </div>
+									 <div class="form-group col-md-12">
+										<label for="email">Email</label>
+										<input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email" required>
+										<span style="color:#d32f2f" ng-show="register_form.email.$touched && register_form.email.$invalid">
+										<span ng-show="register_form.email.$error.required">Email is required.</span>
+										<span ng-show="register_form.email.$error.email">Invalid email address.</span>
+										</span>
+									 </div>
+									 <div class="form-group col-md-12">
+										<label for="phone_number">Phone Number</label>
+										<input type="text" ng-model="user.phone" class="form-control" placeholder="Phone">
+									 </div>
+									 <div class="col-md-12">
+										<div class="row">
+										   <div class="form-group col-md-6">
+											  <label for="password">Password</label>
+											  <input type="password" name = "password" ng-model="user.password" class="form-control" placeholder="Password" required>
+											  <span style="color:#d32f2f" ng-show="register_form.password.$touched && register_form.password.$invalid">
+												 <span ng-show="register_form.password.$error.required">Password is required.</span>
+												  </span>
+											 </div>
+										   <div class="form-group col-md-6">
+											  <label for="confirm_password">Confirm Password</label>
+											  <input type="password" name="password_confirm" ng-model="user.password_confirm" wj-validation-error="user.password_confirm != user.password ? 'Passwords don\'t match' : ''" 
+											  class="form-control" placeholder="Confirm Password">
+											  <span ng-show="register_form.password_confirm.$invalid">Passwords do NOT match.</span>
+											 </span>
+										   </div>
+										</div>
+									 </div>
+								  </fieldset>
+								  <div class="form-group">
+									 <div class="col-md-12">
+										<div class="checkbox">
+										   <label>
+										   <input type="checkbox" name="accepted" required>
+										   I accept <a href="#!termsandconditions">the terms and conditions.</a>
+										   </label>
+										</div>
+									 </div>
+								  </div>
+								  <div class="form-group">
+									 <div class="col-md-12">
+										<button ng-disabled="register_form.$invalid" ng-required="accepted" class="btn btn-warning">
+										Register
+										</button>
+										<a href="#!login">Already have an account?</a>
+									 </div>
+								  </div>
+							   </form>
+							</div>
+						 </div>
+					  </div>
+				   </div>
+				</div>
+			 </div>
 
 		</div>
 
