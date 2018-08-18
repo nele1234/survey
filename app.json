@@ -1,0 +1,7 @@
+{
+    "name": "survey",
+    "description": "answer my survey",
+    "repository" : "https://github.com/nele1234/survey.git",
+    "logo" : "http://node-js-sample.herokuapp.com/node.svg",
+    "keywords": ["node","express","static"]
+}
