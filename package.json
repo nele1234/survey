@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/nele1234/survey.git"
   },
+  "engines": {
+    "node":"8.5.0"
+  },
   "author": "grbo",
   "license": "ISC",
   "bugs": {
@@ -38,6 +41,8 @@
     "proxy-addr": "^2.0.4",
     "range-parser": "^1.2.0",
     "utils-merge": "^1.0.1",
-    "vary": "^1.1.2"
+    "vary": "^1.1.2",
+    "angular-image-slider": "0.0.8",
+    "express": "^4.16.3"
   }
 }
