@@ -7,7 +7,7 @@ function SiteController($scope, $http, toastr, $location){
         }
         return false;
     }
-
+    
     $scope.check_admin = function(){
         if(localStorage.getItem('type') == "admin"){
             return true;

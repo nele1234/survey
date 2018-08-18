@@ -1,25 +1,25 @@
-var express = require('express')
-var app = express()
-var port = process.env.PORT || 3000
+var express = require('express');
+var app = express();
+var port = process.env.PORT || 3000;
 
-var mongojs = require('mongojs')
-var db = mongojs('localhost:27017/survey', ['ankete',"users"])
+const bodyparser = require("body-parser");
+var mongojs = require('mongojs');
+var db = mongojs('localhost:27017/survey', ['ankete',"users"]);
 const jwt_secret = 'WU5CjF8fHxG40S2t7oyk';
 const jwt_admin = 'SJwt25Wq62SFfjiw92sR';
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-var body_parser = require('body-parser')
-app.use(body_parser.json())
+app.use('/', express.static('static'));
+app.use(express.json()); // to support JSON-encoded bodies
+app.use(express.urlencoded({
+    extended: true
+})); // to support URL-encoded bodies
 
-var urlencodedParser = body_parser.urlencoded({
-  extended: false
-})
-
-app.use(express.static(__dirname + '/static'))
-
-app.use('/survey/',function(request,response,next){
-  jwt.verify(request.get('JWT'), jwt_secret, function(error, decoded) {      
+app.use ('/rest/v1', function (request, response, next) {
+  console.log("AAA");
+  jwt.verify(request.get('JWT'), jwt_secret, function(error, decoded) { 
+    console.log(decoded);     
     if (error) {
       response.status(401).send('Unauthorized access');    
     } else {
@@ -35,10 +35,11 @@ app.use('/survey/',function(request,response,next){
         }
       });
     }
-  });  
-})
+  });
+});
 
 app.use('/admin/',function(request,response,next){
+  console.log("AAA");
     jwt.verify(request.get('JWT'), jwt_admin, function(error, decoded) {     
       if (error) {
         response.status(401).send('Unauthorized access'); 
@@ -106,13 +107,13 @@ app.post('/login', function(req, res) {
     });
 });
 
-app.get('/survey/anketa', function (req, res) {
+app.get('/rest/v1/anketa', function (req, res) {
   db.ankete.find(function (err, docs) {
     res.json(docs)
   })
 })
 
-app.post('/anketa', urlencodedParser, function (req, res, next) {
+app.post('/anketa', function (req, res, next) {
   console.log(req.body)
 
   db.ankete.insert(req.body, function (err, docs) {
@@ -130,7 +131,7 @@ app.delete('/deleteSurvey/:id', function (req, res) {
     res.json(doc)
   })
 })
-app.get('/ankete/:id', urlencodedParser, function (req, res) {
+app.get('/ankete/:id', function (req, res) {
   var id = req.params.id
   console.log(id)
   db.ankete.findOne({
@@ -203,6 +204,6 @@ app.post('/register', function(req, res, next) {
 
 app.listen(port, function () {
   console.log('Node app is running on port', port)
-  
+
 })
 

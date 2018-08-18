@@ -1,5 +1,5 @@
 
-function getSurvey($scope, $http, toastr) {
+function getSurvey($scope, $http, toastr, $location) {
 
   var config = {headers:  {
     'Authorization': 'Basic TmljayBDZXJtaW5hcmE6cGFzc3dvcmQ=',
@@ -7,10 +7,8 @@ function getSurvey($scope, $http, toastr) {
     "JWT" : localStorage.getItem('user')
     }
  };
- console.log(localStorage.getItem('user'))
- console.log(localStorage.getItem('type'))
 var getting = function(){
-    $http.get("/survey/anketa",config)
+    $http.get("/rest/v1/anketa",config)
     .then(function(response) {
         $scope.myWelcome = response.data;
     });
@@ -25,6 +23,13 @@ $scope.addAnketa = function () {
       getting()
     })
   }
+
+  $scope.logout = function(){
+    localStorage.clear();
+
+    $location.url("/login");
+}
+
 
   $scope.open = function () {
     $scope.visible = false;

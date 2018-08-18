@@ -183,18 +183,14 @@ body{
 				<div class="container">
 				   <div class="row align-items-center">
 					  <div class="col-md-6">
-						 <div class="register-message col-md-12">
-							 <img style="margin-bottom:100px;" src="assets/images/logo.png">
-						 </div>
 					  </div>
 					  <div class="col-md-6">
 						 <div class="row">
 							<div class="col-md-12 col-md-offset-2">
 							   <form name="register_form" ng-submit="add_user()">
-								  <legend class="text-center">Register</legend>
 								  <fieldset>
 									 <div class="form-group col-md-12">
-										<label for="first_name">First name</label>
+										<label class="form-control" for="first_name">First name</label>
 										<input type="text" name="firstname" ng-model="user.firstName" class="form-control" placeholder="First Name" required>
 										<span style="color:#d32f2f" ng-show="register_form.firstname.$touched">
 										 <span ng-show="register_form.firstname.$error.required">First name is required.</span>
