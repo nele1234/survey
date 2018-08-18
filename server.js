@@ -23,7 +23,7 @@ app.use('/survey/',function(request,response,next){
     if (error) {
       response.status(401).send('Unauthorized access');    
     } else {
-      db.collection("users").findOne({'_id': new MongoId(decoded._id)}, function(error, user) {
+      db.users.findOne({'_id': new mongojs.ObjectId(decoded._id)}, function(error, user) {
         if (error){
           throw error;
         }else{
@@ -44,7 +44,7 @@ app.use('/admin/',function(request,response,next){
         response.status(401).send('Unauthorized access'); 
         console.log(error);   
       } else {
-        db.collection("users").findOne({'_id': new MongoId(decoded._id)}, function(error, users) {
+        db.users.findOne({'_id': new mongojs.ObjectId(decoded._id)}, function(error, users) {
           if (error){
             throw error;
           }else{
@@ -106,7 +106,7 @@ app.post('/login', function(req, res) {
     });
 });
 
-app.get('/anketa', function (req, res) {
+app.get('/survey/anketa', function (req, res) {
   db.ankete.find(function (err, docs) {
     res.json(docs)
   })

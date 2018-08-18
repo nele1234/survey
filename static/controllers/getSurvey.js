@@ -1,7 +1,16 @@
+
 function getSurvey($scope, $http, toastr) {
 
+  var config = {headers:  {
+    'Authorization': 'Basic TmljayBDZXJtaW5hcmE6cGFzc3dvcmQ=',
+    'Accept': 'application/json;odata=verbose',
+    "JWT" : localStorage.getItem('user')
+    }
+ };
+ console.log(localStorage.getItem('user'))
+ console.log(localStorage.getItem('type'))
 var getting = function(){
-    $http.get("/anketa")
+    $http.get("/survey/anketa",config)
     .then(function(response) {
         $scope.myWelcome = response.data;
     });
