@@ -4,7 +4,8 @@ var port = process.env.PORT || 3000;
 
 const bodyparser = require("body-parser");
 var mongojs = require('mongojs');
-var db = mongojs('localhost:27017/survey', ['ankete',"users"]);
+//var db = mongojs('localhost:27017/survey', ['ankete',"users"]);
+var db = mongojs(process.env.MONGOLAB_URI || 'mongodb://nele123:jaman123456@ds125482.mlab.com:25482/grbosurvey')
 const jwt_secret = 'WU5CjF8fHxG40S2t7oyk';
 const jwt_admin = 'SJwt25Wq62SFfjiw92sR';
 var bcrypt = require('bcrypt');
