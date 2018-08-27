@@ -50,14 +50,5 @@ function SiteController($scope, $http, toastr, $location){
         $scope.visible = true;
         $scope.visible = $scope.visible = false;
       }
-      controller.getYellowStars = function (num) {  
-        var numberOfStars = Math.round(num);  
-        if (numberOfStars > 5)  
-            numberOfStars = 5;  
-        var data = new Array(numberOfStars);  
-        for (var i = 0; i < data.length; i++) {  
-            data[i] = i;  
-        }  
-        return data;  
-    }
+    
 }
