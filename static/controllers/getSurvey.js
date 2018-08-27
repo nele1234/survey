@@ -89,6 +89,14 @@ $scope.addAnketa = function () {
     })
   }
   
+  get();
+
+  function get(){
+    $http.get('/average').then(function(res){
+      console.log(res);
+    })
+  }
+
   $scope.addregistration = function () {
     console.log('registracija dodana')
     $http.post('/registracija', $scope.user).then(function (response) {

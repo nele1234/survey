@@ -207,10 +207,37 @@ app.post('/register', function(req, res, next) {
 });
 app.post('/sendingAppFeed', urlencodedParser, function(req, res, next) {
   console.log(req.body);
+  console.log(typeof parseInt(req.body.rating));
   db.appFeedback.insert(req.body, function(err, docs) {
     console.log('inserted')
     res.json(docs)
   })
+})
+
+app.get('/average', function(req, res){
+  db.appFeedback.aggregate(
+      [
+        {
+          $group:
+            {
+              _id: null,
+              avgQuantity: { $sum: "$rating" },
+              avgr: {$sum : 1}
+            }
+        },
+        {
+          $project:
+          {
+            juhu: {$divide: ["$avgQuantity", "$avgr"]},
+            avgQuantity: 1,
+            avgr : 1,
+          }
+        }
+      ], function(err, docs){
+        if(err) return console.log(err);
+        res.send(docs);
+      }
+   )
 })
 
 app.listen(port, function () {
