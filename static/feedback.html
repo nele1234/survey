@@ -29,6 +29,7 @@
 </head>
 <body>
 
+	
 
 	<div class="container-contact100">
 		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
@@ -36,12 +37,18 @@
 		<div class="wrap-contact100">
 			<span class="contact100-form-symbol">
 				<img src="images/icons/symbol-01.png" alt="SYMBOL-MAIL">
-			</span>
+			</span><!-- 
+			<form name="appForm">
+					<textarea rows="3" placeholder="Leave your feedback..." class="mb-3" id="feedbackApp" required name="feedbackApp" ng-model="feed.text" style="font-size: 25px; resize: none; margin-bottom:5px;"></textarea>
+					<span style="color:red" ng-show="appForm.feedbackApp.$untouched ||appForm.feedbackApp.$error.required">Please write your opinion</span>
+					<button class=" button style" style="width:100%" ng-click="sendAppFeed()" ng-disabled="appForm.$invalid">Send feedback</button>
+				  </form> -->
 
 			<form class="contact100-form validate-form flex-sb flex-w">
 				<span class="contact100-form-title">
 					Drop Us A Message
-				</span>
+					
+				</span><!-- 
 
 				<div class="wrap-input100 rs1 validate-input" data-validate = "Name is required">
 					<input class="input100" type="text" name="name" placeholder="Name">
@@ -51,15 +58,19 @@
 				<div class="wrap-input100 rs1 validate-input" data-validate = "Email is required: e@a.z">
 					<input class="input100" type="text" name="email" placeholder="Email Address">
 					<span class="focus-input100"></span>
-				</div>
+				</div> -->
+				
 
 				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea class="input100" name="message" placeholder="Write Us A Message"></textarea>
+					<textarea class="input100" name="message" placeholder="Write Us A Message" id="feedbackApp" required name="feedbackApp" ng-model="feed.text"></textarea>
+					
+
+					
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" ng-click="sendAppFeed()" >
 						Send
 					</button>
 				</div>

@@ -16,6 +16,9 @@ app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded({
     extended: true
 })); // to support URL-encoded bodies
+var urlencodedParser = bodyparser.urlencoded({
+  extended: false
+})
 
 app.use ('/rest/v1', function (request, response, next) {
   console.log("AAA");
@@ -202,6 +205,13 @@ app.post('/register', function(req, res, next) {
 
   })
 });
+app.post('/sendingAppFeed', urlencodedParser, function(req, res, next) {
+  console.log(req.body);
+  db.appFeedback.insert(req.body, function(err, docs) {
+    console.log('inserted')
+    res.json(docs)
+  })
+})
 
 app.listen(port, function () {
   console.log('Node app is running on port', port)

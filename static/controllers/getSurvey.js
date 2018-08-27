@@ -79,6 +79,15 @@ $scope.addAnketa = function () {
       getting()
     })
   }
+  $scope.sendAppFeed = function () {
+    console.log('Feedback sent');
+    console.log($scope.feed);
+    $http.post('/sendingAppFeed', $scope.feed).then(function (response) {
+      console.log(response)
+      $scope.feed.text = "";
+      toastr.success("Thanks!!!")
+    })
+  }
   
   $scope.addregistration = function () {
     console.log('registracija dodana')
